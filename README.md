@@ -18,7 +18,7 @@ The key features that will be available:
 4.4.	Aadhar Seeding
 5.	There are also options that are work in progress and aren’t available to use as of now. 
 
-#Onboarding Screen:
+# Onboarding Screen:
 
 1.	This module provides the user with the basic information and what the scheme has achieved up till now.
 2.	With the header and footer as fixed. This screen has a carousel that auto scrolls to the Homepage.
@@ -119,7 +119,7 @@ The key features that will be available:
  <img width="459" alt="image" src="https://user-images.githubusercontent.com/91450039/178945381-92430c1d-4594-411f-a8ba-43391133ccce.png">
 
 
-# # Still working on
+# # WORKING ON::
 
 # Shops Near You
 1.	Module:
