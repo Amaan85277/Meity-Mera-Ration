@@ -7,7 +7,7 @@ The key features that will be available:
 •	Information about the states in which ONORC is active can also be checked and their transactions. 
 •	If have any suggestions then it can be submitted from this app. 
 
-# INFRSTRUCTURE
+# INFRASTRUCTURE
 1.	The application is designed, to make it easier for the user to know their details.
 2.	The application starts with an Onboarding screen continuing with the Home Screen where there are various options. 
 3.	User may choose the option according to the information that they may need.
