@@ -7,7 +7,7 @@ The key features that will be available:
 •	Information about the states in which ONORC is active can also be checked and their transactions. 
 •	If have any suggestions then it can be submitted from this app. 
 
-#INFRSTRUCTURE
+# INFRSTRUCTURE
 1.	The application is designed, to make it easier for the user to know their details.
 2.	The application starts with an Onboarding screen continuing with the Home Screen where there are various options. 
 3.	User may choose the option according to the information that they may need.
@@ -30,7 +30,7 @@ The key features that will be available:
 <img width="409" alt="image" src="https://user-images.githubusercontent.com/91450039/178944899-200aa859-4858-4b12-b3a4-106cd45b2855.png">
 
  
-Home Screen
+# Home Screen
 1.	This screen is the home of the application.
 2.	This screen provides the user with the various options.
 2.1.	Options currently working including:
@@ -47,7 +47,7 @@ Home Screen
  <img width="418" alt="image" src="https://user-images.githubusercontent.com/91450039/178944941-7a066638-2f3a-44f8-93fd-92f39545d363.png">
 
 
-#Know your Ration
+# Know your Ration
 1.	On opening this module, there comes a dialogue box in which the user needs to fill their Ration card number.
 2.	On providing with the Ration Card Number
 2.1.	If the card number is wrong / not present in the database. It gives an error indicating “Enter the card number correctly!”.
@@ -64,7 +64,7 @@ Home Screen
  <img width="448" alt="image" src="https://user-images.githubusercontent.com/91450039/178945038-33a115db-ca2a-466b-b8cc-6401a3ad6037.png">
 
 
-#ONORC States
+# ONORC States
 1.	Module:
 1.1.	Contains the information about all the states that are active in the ONORC scheme.
 1.2.	Lets the user know about the various districts, their location where FPS (Fair Price Shops) are located.
@@ -82,7 +82,7 @@ Home Screen
 
 <img width="419" alt="image" src="https://user-images.githubusercontent.com/91450039/178945145-f4c8a1bc-1bf1-43ad-bc7d-c95f5e240627.png">
 
-#Eligibility Criteria
+# Eligibility Criteria
 1.	On opening this module, there comes a dialogue box in which the user needs to fill their Ration card number.
 2.	On providing with the Ration Card Number
 2.1.	The module navigates user to the second screen where the results are shown.
@@ -102,7 +102,7 @@ Home Screen
  <img width="449" alt="image" src="https://user-images.githubusercontent.com/91450039/178945235-0fbea23d-76f0-48f0-ab49-7e3d92e8adf6.png">
 
 
-#Aadhar Seeding
+# Aadhar Seeding
 1.	On opening this module, there comes a dialogue box in which the user needs to fill their Ration card number.
 2.	On providing with the Ration Card Number
 2.1.	The module navigates user to the second screen where the results are shown.	
@@ -117,4 +117,32 @@ Home Screen
 4.	Lastly, it shows if the user’s Aadhar seeding details.
 
  <img width="459" alt="image" src="https://user-images.githubusercontent.com/91450039/178945381-92430c1d-4594-411f-a8ba-43391133ccce.png">
+
+
+# # Still working on
+
+# Shops Near You
+1.	Module:
+1.1.	Three dropdown list will be available. 
+1.2.	Each for State,  District and Tehsil respectively.
+1.3.	On entering/selecting the State name, district and the Tehsil the pop-up will show a list of Ration stores near the location filled in.
+2.	As of now, only able to show the State list through the API
+3.	Working on a way to merge the State API and the District API , continuing with the Tehsil API to get the location of the user and access the information from the database.
+4.	Continuing…
+4.1.	On further advancement, ask user for the accessing their current location as soon as they open the app.
+4.2.	Making it hassle free for them to search Ration Stores near their current location.
+ 
+ <img width="321" alt="image" src="https://user-images.githubusercontent.com/91450039/178945789-bd903d82-98c0-4162-b9e7-f9ccaf69ee48.png">
+
+ 
+# Suggestions and Feedbacks
+1.	Module:
+1.1.	 Will allow the user to submit their suggestions and feedback in-relation to their phone number and ration number.
+2.	Connecting it with the Firebase
+2.1.	Google Firebase is a Google-backed application development software that enables developers to develop iOS, Android and Web apps. 
+2.2.	Firebase provides tools for tracking analytics, reporting and fixing app crashes, creating marketing and product experiment.
+2.3.	Will be able to store the data in the real-time ¬database.
+
+<img width="345" alt="image" src="https://user-images.githubusercontent.com/91450039/178945732-1bc3d352-219d-4130-8858-f57ba9bdd4c2.png">
+
 
