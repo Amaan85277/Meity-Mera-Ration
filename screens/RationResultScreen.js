@@ -31,14 +31,14 @@ const RationResultScreen = ({ navigation, route }) => {
 
   const data = {
     id: route.params.id,
-    idType: "R",
-    userName: "IMPDS",
-    token: "91f01a0a96c526d28e4d0c1189e80459",
-    sessionId: "2820190812185006",
+    idType: "",
+    userName: "",
+    token: "",
+    sessionId: "",
   };
-
+// removing api info for privacy concerns
   useEffect(() => {
-    fetch("http://impds.nic.in/impdsmobileapi/api/getrationcard", {
+    fetch("", {
       method: "POST",
       body: JSON.stringify(data),
     })
