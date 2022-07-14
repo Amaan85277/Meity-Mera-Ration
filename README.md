@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# Prototype of Mera Ration App
+This is a project that will help people – ration cardholders, especially migrant workers to check food grain entitlement, status of Aadhar seeding and recent transactions etc.
+The key features that will be available:
+•	With the help of this application, user can check their ration details, the current scheme they are enrolled in and etc. .
+•	The user will be able to check if they are eligible for the ration policies. 
+•	If user have seeded their Aadhaar with a ration card then its status can be checked from this app too. 
+•	Information about the states in which ONORC is active can also be checked and their transactions. 
+•	If have any suggestions then it can be submitted from this app. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#INFRSTRUCTURE
+1.	The application is designed, to make it easier for the user to know their details.
+2.	The application starts with an Onboarding screen continuing with the Home Screen where there are various options. 
+3.	User may choose the option according to the information that they may need.
+4.	Including:
+4.1.	Ration Information
+4.2.	Home State Information
+4.3.	Eligibility
+4.4.	Aadhar Seeding
+5.	There are also options that are work in progress and aren’t available to use as of now. 
 
-## Available Scripts
+#Onboarding Screen:
 
-In the project directory, you can run:
+1.	This module provides the user with the basic information and what the scheme has achieved up till now.
+2.	With the header and footer as fixed. This screen has a carousel that auto scrolls to the Homepage.
+3.	A button “Go to Home” is also provided that links to the Homepage and on clicking will skip the Onboarding screen and navigate us to the Homepage.
+4.	The carousel displays various pictures in an ordered format that also imparts the numbers/information about the ONORC scheme.
+5.	Implemented using the flat list library making it scroll in the horizontal way rather than the native vertical way giving a carousel effect.
+6.	Also added bounds and fixed movements. So, that the images don’t bounce at the end and on scrolling, smoothly shift to the next image and not be stuck in between.
 
-### `npm start`
+<img width="409" alt="image" src="https://user-images.githubusercontent.com/91450039/178944899-200aa859-4858-4b12-b3a4-106cd45b2855.png">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ 
+Home Screen
+1.	This screen is the home of the application.
+2.	This screen provides the user with the various options.
+2.1.	Options currently working including:
+2.1.1.	Know you ration
+2.1.2.	Eligibility Criteria
+2.1.3.	Aadhar Seeding
+2.1.4.	ONORC States
+2.2.	Options being worked on:
+2.2.1.	Nearby Ration Stores
+2.2.2.	Suggestion and Feedbacks
+3.	The Screen is provided with a scrollable view that allows for more options in the future.
+4.	Also, planning to add the app – navigation drawer that will not only help in the navigation, but will also provide us with the information related to the application.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ <img width="418" alt="image" src="https://user-images.githubusercontent.com/91450039/178944941-7a066638-2f3a-44f8-93fd-92f39545d363.png">
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#Know your Ration
+1.	On opening this module, there comes a dialogue box in which the user needs to fill their Ration card number.
+2.	On providing with the Ration Card Number
+2.1.	If the card number is wrong / not present in the database. It gives an error indicating “Enter the card number correctly!”.
+2.2.	If the card number is present in the database, the module navigates user to the second screen where the results are shown.
+2.3.	The module lets the user know about their information that is currently saved in the database. The information that they provided, while the ration card was being made.
+3.	The result screen includes:
+3.1.	The ration id of the user
+3.2.	His / Her name according to their ration card
+3.3.	The state that they reside in.
+3.4.	Their current address.
+3.5.	Any scheme that they are currently enrolled into.
+3.6.	And relationship status, if they have any.
+ 
+ <img width="448" alt="image" src="https://user-images.githubusercontent.com/91450039/178945038-33a115db-ca2a-466b-b8cc-6401a3ad6037.png">
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#ONORC States
+1.	Module:
+1.1.	Contains the information about all the states that are active in the ONORC scheme.
+1.2.	Lets the user know about the various districts, their location where FPS (Fair Price Shops) are located.
+2.	On opening this module:
+2.1.	An alert pops-up that states, the application wants to re-direct that page to a different website. 
+2.2.	On cancelling, the dialogue box closes and the user remains on the home screen.
+2.3.	While on pressing “Ok” the user is directed to the website.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="410" alt="image" src="https://user-images.githubusercontent.com/91450039/178945115-84174ca7-8b66-4637-b5b7-fd9089d297bb.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2.4.	The website in this case is the “http://impds.nic.in/sale” which stores:
+2.4.1.	Information regarding all the active states where ONORC is active.
+2.4.2.	The number if districts in the particular state and relative FPS location.
+2.4.3.	Information regarding the daily and monthly transactions that took place.
 
-### `npm run eject`
+<img width="419" alt="image" src="https://user-images.githubusercontent.com/91450039/178945145-f4c8a1bc-1bf1-43ad-bc7d-c95f5e240627.png">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#Eligibility Criteria
+1.	On opening this module, there comes a dialogue box in which the user needs to fill their Ration card number.
+2.	On providing with the Ration Card Number
+2.1.	The module navigates user to the second screen where the results are shown.
+2.2.	The module lets the user know about their information that is currently saved in the database. The information that they provided, while the ration card was being made.
+3.	The result screen includes:
+3.1.	Home State of the user
+3.2.	Home District of the user
+3.3.	Any scheme that they are currently enrolled into.
+3.4.	Ration ID number
+3.5.	FPS ID number
+4.	Other information our also shown such as :
+4.1.	If beneficiary possess a duplicate UID or not.
+4.2.	Is IMPDS available for the user or not.
+4.3.	Are the Sales Details available or not.
+4.4.	Is IMPDS allowed on the ID or not.
+ 
+ <img width="449" alt="image" src="https://user-images.githubusercontent.com/91450039/178945235-0fbea23d-76f0-48f0-ab49-7e3d92e8adf6.png">
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#Aadhar Seeding
+1.	On opening this module, there comes a dialogue box in which the user needs to fill their Ration card number.
+2.	On providing with the Ration Card Number
+2.1.	The module navigates user to the second screen where the results are shown.	
+2.2.	The module lets the user know about their information that is currently saved in the database. The information that they provided, while the ration card was being made.
+3.	The result screen includes:
+3.1.	Home State of the user
+3.2.	Home District of the user
+3.3.	Any scheme that they are currently enrolled into.
+3.4.	Ration ID number
+3.5.	FPS ID number
+3.6.	If the user id eligible for the ONORC Scheme.
+4.	Lastly, it shows if the user’s Aadhar seeding details.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ <img width="459" alt="image" src="https://user-images.githubusercontent.com/91450039/178945381-92430c1d-4594-411f-a8ba-43391133ccce.png">
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
