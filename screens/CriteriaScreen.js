@@ -11,13 +11,19 @@ import React, { useState } from "react";
 import { AntDesign, SimpleLineIcons } from "react-native-vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-import Footer from "../components/footer/Footer";
+// import Footer from "../components/footer/Footer";
 import emblem from "../assets/emblem.png";
 import nic from "../assets/footer.png";
 
 const CriteriaScreen = () => {
   const [cardNumber, setCardNumber] = useState("");
+  
   const navigation = useNavigation();
+
+  const success=()=>{
+    // console.log("SUCCESS!!")
+    navigation.navigate("CriteriaResult", {id:cardNumber});
+  }
 
   return (
     <View style={styles.container}>
@@ -62,7 +68,7 @@ const CriteriaScreen = () => {
             paddingHorizontal: 20,
           }}
         >
-          <AntDesign name="arrowleft" size={24} color={"white"} onPress={()=>navigation.navigate("HomeScreen")}/>
+          <AntDesign name="arrowleft" size={24} color={"white"} onPress={()=>navigation.goBack()}/>
           <Text style={{ fontWeight: "bold", color: "white", fontSize: 22 }}>
             Check Aadhaar Seeding
           </Text>
@@ -97,7 +103,7 @@ const CriteriaScreen = () => {
         <View>
           <TouchableOpacity
           style={{backgroundColor:"#0e4d92", alignItems:"center", padding:10, marginHorizontal:80, marginTop:20}}
-          onPress={()=>navigation.navigate("HomeScreen")}>
+          onPress={()=> cardNumber.length!=12 ? alert("Enter the Card number correctly") : success()}>
             <Text style={{color:"white"}}>SUBMIT</Text>
             </TouchableOpacity>
         </View>

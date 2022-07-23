@@ -1,184 +1,296 @@
-// import { StyleSheet, Text, View } from "react-native";
-// import React, { useState } from "react";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import React, { useState, useEffect } from "react";
+import { AntDesign, SimpleLineIcons} from "react-native-vector-icons";
 
-// import { Entypo } from "react-native-vector-icons";
+import emblem from "../assets/emblem.png";
+import nic from "../assets/footer.png";
 
-// const SeedingResultScreen = ({ navigation, route }) => {
-//   const [stateName, setStateName] = useState("");
-//   const [schemeName, setSchemeName] = useState("");
-//   const [address, setAddress] = useState("");
-//   const [Mname, setMname] = useState("");
-//   const [relation, setRelation] = useState("");
+const SeedingResultScreen = ({ navigation, route }) => {
+  const [loading, setLoading] = useState(true);
 
-//   const paramSetter = (value) => {
-//     setStateName(value.homeStateName);
-//     setSchemeName(value.schemeName);
-//     setAddress(value.address);
-//     setMname(value.memberDetailsList[0].memberName);
-//     setRelation(value.memberDetailsList[0].releationship_name);
-//   };
+  const [time, setTime] = React.useState();
 
-//   const data = {
-//     id: route.params.id,
-//     idType: "R",
-//     userName: "IMPDS",
-//     token: "91f01a0a96c526d28e4d0c1189e80459",
-//     sessionId: "2820190812185006",
-//   };
+  const [stateName, setStateName] = useState("");
+  const [schemeName, setSchemeName] = useState("");
+  const [district, setDistrict] = useState("");
+  const [FPS, setFPS] = useState("");
+  const [allowedONORC, setAllowedONORC] = useState("");
+  const [name, setName] = useState("");
 
-//   fetch("http://impds.nic.in//impdsmobileapi/api/getrationcard/", {
-//     method: "POST",
-//     body: JSON.stringify(data),
-//   })
-//     .then((response) => response.json())
-//     .then((value) => paramSetter(value))
-//     .catch((e) => console.log(e));
+  const paramSetter = (value) => {
+    setStateName(value.homeStateName);
+    setSchemeName(value.schemeName);
+    setDistrict(value.homeDistName);
+    setFPS(value.fpsId);
+    setAllowedONORC(value.allowed_onorc);
+    setName(value.memberDetailsList[0].memberName);
+  };
 
-//   return (
-//     <View style={styles.container}>
-//       <View style={{ borderColor: "orange", borderWidth: 1, top: 0 }}></View>
-//       <View
-//         style={{
-//           flexDirection: "row",
-//           justifyContent: "space-between",
-//           padding: 10,
-//         }}
-//       >
-//         <Text style={{ fontSize: 20, fontWeight: "700" }}>
-//           Ration Card Details :
-//         </Text>
-//         <Entypo
-//           name="cross"
-//           size={24}
-//           color={"black"}
-//           onPress={navigation.navigate("Seeding")}
-//         />
-//       </View>
-//       <View style={{ borderColor: "orange", borderWidth: 1, top: 0 }}></View>
+  const data = {
+    id: route.params.id,
+    idType: "R",
+    userName: "IMPDS",
+    token: "91f01a0a96c526d28e4d0c1189e80459",
+    sessionId: "282019011812185006",
+  };
 
-//       {/* <View style={{padding:10, justifyContent:"center", flexDirection:"row", }}>
-//         <View style={{}}>
-//           <Text style={styles.text}>Home State Name </Text>
-//           <Text style={styles.text}>Ration Card Id </Text>
-//           <Text style={styles.text}>Scheme Name </Text>
-//           <Text style={styles.text}>Address </Text>
-//         </View>
-//         <View style={{}}>
-//           <Text style={styles.text}>: {stateName}</Text>
-//           <Text style={styles.text}>: {route.params.id}</Text>
-//           <Text style={styles.text}>: {schemeName}</Text>
-//           <Text style={styles.text}>: {address}</Text>
-//         </View>
-//       </View> */}
+  // for date and time
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date().toLocaleString());
+    }, 1000);
 
-//       <View style={{ flexDirection: "column", left: 30, marginTop: 100 }}>
-//         <View style={styles.row}>
-//           <View>
-//             <Text style={[styles.text, { fontWeight: "700" }]}>
-//               Home State Name :
-//             </Text>
-//           </View>
-//           <View>
-//             <Text style={styles.text}>{stateName}</Text>
-//           </View>
-//         </View>
-//         <View style={styles.row}>
-//           <View>
-//             <Text style={[styles.text, { fontWeight: "700" }]}>
-//               Ration Card Id :
-//             </Text>
-//           </View>
-//           <View>
-//             <Text style={styles.text}>{route.params.id}</Text>
-//           </View>
-//         </View>
-//         <View style={styles.row}>
-//           <View>
-//             <Text style={[styles.text, { fontWeight: "700" }]}>
-//               Scheme Name :
-//             </Text>
-//           </View>
-//           <View>
-//             <Text style={styles.text}>{schemeName}</Text>
-//           </View>
-//         </View>
-//         <View style={styles.row}>
-//           <View>
-//             <Text style={[styles.text, { fontWeight: "700" }]}>Address :</Text>
-//           </View>
-//           <View>
-//             <Text style={styles.text}>{address}</Text>
-//           </View>
-//         </View>
-//       </View>
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
-//       <View style={{ padding: 20, width: "100%" }}>
-//         <View style={styles.nameContainer}>
-//           <View style={styles.bluebox}>
-//             <Text style={[styles.text, { color: "white", fontWeight: "500" }]}>
-//               Member Name
-//             </Text>
-//           </View>
-//           <View style={{ justifyContent: "center" }}>
-//             <Text style={{ fontSize: 16 }}>{Mname}</Text>
-//           </View>
-//         </View>
+  useEffect(() => {
+    fetch("http://impds.nic.in/impdsmobileapi/api/getrationcard/", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((json) => paramSetter(json))
+      .catch((e) => console.log(e))
+      .finally(() => setLoading(false));
+  }, []);
 
-//         <View style={styles.nameContainer}>
-//           <View style={styles.bluebox}>
-//             <Text style={[styles.text, { color: "white", fontWeight: "500" }]}>
-//               RelationShip Name
-//             </Text>
-//           </View>
-//           <View style={{ justifyContent: "center" }}>
-//             <Text style={{ fontSize: 16 }}>{relation}</Text>
-//           </View>
-//         </View>
-//       </View>
-//     </View>
-//   );
-// };
-
-// export default SeedingResultScreen;
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     marginTop: "10%",
-//     // justifyContent: "space-around",
-//     // alignItems: "center",
-//   },
-//   text: {
-//     fontSize: 18,
-//     color: "grey",
-//   },
-//   row: {
-//     flexDirection: "column",
-//     padding: 10,
-//   },
-//   nameContainer: {
-//     flexDirection: "row",
-//     justifyContent: "space-between",
-//     borderWidth: 1,
-//     alignItems: "center",
-//   },
-//   bluebox: {
-//     backgroundColor: "#0e4d92",
-//     width: "60%",
-//     height: 40,
-//     justifyContent: "center",
-//   },
-// });
-
-import { View, Text } from 'react-native'
-import React from 'react'
-
-const SeedingResultScreen = () => {
   return (
-    <View>
-      <Text>SeedingResultScreen</Text>
-    </View>
-  )
-}
+    <View style={styles.container}>
+      {loading ? (
+        <Text>....Loading</Text>
+      ) : (
+        <>
+          <View style={styles.header}>
+            <View style={{ borderWidth: 2, borderColor: "#0e4d92" }}></View>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-around" }}
+            >
+              <View style={{ padding: 10 }}>
+                <Image
+                  source={emblem}
+                  backgroundColor={"white"}
+                  style={{ resizeMode: "contain", width: 50, height: 50 }}
+                />
+              </View>
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingRight: 30,
+                }}
+              >
+                <Text
+                  style={{ fontWeight: "700", color: "#0e4d92", fontSize: 18 }}
+                >
+                  Mera Ration
+                </Text>
+                <Text style={{ color: "#0e4d92" }}>
+                  Department of Food Public Distribution
+                </Text>
+                <Text style={{ fontWeight: "700", color: "#0e4d92" }}>
+                  Govt of India
+                </Text>
+              </View>
+            </View>
+            <View style={{ borderWidth: 2, borderColor: "#0e4d92" }}></View>
+          </View>
 
-export default SeedingResultScreen
+          <View style={styles.heading}>
+            <View
+              style={{
+                paddingVertical: 10,
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                paddingHorizontal: 20,
+              }}
+            >
+              <AntDesign
+                name="arrowleft"
+                size={24}
+                color={"white"}
+                onPress={() => navigation.goBack()}
+              />
+              <Text
+                style={{ fontWeight: "bold", color: "white", fontSize: 22 }}
+              >
+                Aadhar Seeding Details
+              </Text>
+              <SimpleLineIcons
+                name="options-vertical"
+                size={18}
+                color={"white"}
+              />
+            </View>
+          </View>
+
+          <View style={styles.content}>
+
+            <View style={{flexDirection:"row", alignItems:"center"}}>
+              <Text style={{color:"#0e4d92", fontSize:18, fontWeight:"bold"}}>Date and Time : </Text>
+              <Text style={{fontSize:16, fontWeight:"500"}}>{time}</Text>
+            </View>
+
+            {/* just for spacing */}
+            <View style={{ height: 20 }}></View>
+
+            <View style={styles.upperContent}>
+              {/* two view in flex:coloumn direction */}
+              <View>
+                <Text style={styles.upperContent_heading}> Home State </Text>
+                <Text style={styles.upperContent_heading}> Home District </Text>
+                <Text style={styles.upperContent_heading}> Scheme </Text>
+                <Text style={styles.upperContent_heading}> Card ID </Text>
+                <Text style={styles.upperContent_heading}> FPS ID </Text>
+                <Text style={styles.upperContent_heading}> ONORC Eligibilty </Text>
+              </View>
+              <View>
+                <Text style={{ padding: 6 }}> : </Text>
+                <Text style={{ padding: 6 }}> : </Text>
+                <Text style={{ padding: 6 }}> : </Text>
+                <Text style={{ padding: 6 }}> : </Text>
+                <Text style={{ padding: 6 }}> : </Text>
+                <Text style={{ padding: 6 }}> : </Text>
+              </View>
+              <View>
+                <Text style={styles.upperContent_ids}> {stateName} </Text>
+                <Text style={styles.upperContent_ids}> {district} </Text>
+                <Text style={styles.upperContent_ids}> {schemeName} </Text>
+                <Text style={styles.upperContent_ids}> {route.params.id} </Text>
+                <Text style={styles.upperContent_ids}> {FPS} </Text>
+                <Text style={styles.upperContent_ids}> {allowedONORC} </Text>
+              </View>
+            </View>
+
+            {/* just for spacing */}
+            <View style={{ height: 30 }}></View>
+
+            <View style={styles.lowerContent}>
+              <View style={{ width: "50%" }}>
+                <Text
+                  style={[
+                    styles.lowerContent_text,
+                    {
+                      fontSize: 16,
+                      color: "white",
+                      backgroundColor: "rgb(0, 170, 255)",
+                    },
+                  ]}
+                >
+                  {" "}
+                  Member Name
+                  {" "}
+                </Text>
+                <Text style={styles.lowerContent_text}>
+                  {" " + name + " "}
+                </Text>
+                </View>
+              <View style={{ width: "50%" }}>
+                <Text
+                  style={[
+                    styles.lowerContent_text,
+                    {
+                      fontSize: 16,
+                      color: "white",
+                      backgroundColor: "rgb(0, 170, 255)",
+                    },
+                  ]}
+                >
+                  {" "}
+                  Aadhar Seeding{" "}
+                </Text>
+                <Text style={styles.lowerContent_text}> Yes </Text>
+              </View>
+            </View>
+          </View>
+
+          <View style={styles.footer}>
+            <View>
+              <Text style={styles.text}>ONE NATION ONE RATION CARD</Text>
+            </View>
+            <View>
+              <Image source={nic} style={styles.image} />
+            </View>
+          </View>
+        </>
+      )}
+    </View>
+  );
+};
+
+export default SeedingResultScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    top: 40,
+    backgroundColor: "white",
+  },
+  header: {
+    width: "100%",
+    height: 80,
+    backgroundColor: "white",
+  },
+  heading: {
+    width: "100%",
+    backgroundColor: "#0e4d92",
+  },
+  content: {
+    flex: 3,
+    alignItems: "center",
+    paddingTop: 30,
+    justifyContent: "flex-start",
+  },
+  footer: {
+    width: "100%",
+    bottom: 30,
+    position: "absolute",
+    backgroundColor: "#0e4d92",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  text: {
+    color: "white",
+    fontWeight: "bold",
+  },
+  image: {
+    width: 100,
+    resizeMode: "contain",
+  },
+  upperContent: {
+    borderColor: "#0e4d92",
+    height: 220,
+    borderWidth: 2,
+    width: "90%",
+    borderRadius: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  upperContent_heading: {
+    padding: 6,
+    fontSize: 16,
+    fontWeight: "600",
+    color: "rgb(0, 170, 255)",
+  },
+  upperContent_ids: { padding: 6, fontWeight: "400", fontSize: 16 },
+  lowerContent: {
+    height: 200,
+    width: "98%",
+    flexDirection: "row",
+  },
+  lowerContent_text: {
+    borderWidth: 1,
+    fontSize: 14,
+    fontWeight: "400",
+    padding: 4,
+  },
+});

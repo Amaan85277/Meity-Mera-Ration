@@ -68,7 +68,7 @@ const RationScreen = () => {
             paddingHorizontal: 20,
           }}
         >
-          <AntDesign name="arrowleft" size={24} color={"white"} onPress={()=>navigation.navigate("HomeScreen")}/>
+          <AntDesign name="arrowleft" size={24} color={"white"} onPress={()=>navigation.goBack()}/>
           <Text style={{ fontWeight: "bold", color: "white", fontSize: 22 }}>
             ONORC Information
           </Text>

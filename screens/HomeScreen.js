@@ -9,8 +9,11 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Header />
+      {/* two scroll lists because on implementation of only one, the footer didn't retain it's position i.e. bottom and moved with the content */}
       <ScrollView>
-        <Content />
+        <ScrollView>
+          <Content />
+        </ScrollView>
         <Footer />
       </ScrollView>
     </View>

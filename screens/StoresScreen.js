@@ -11,7 +11,7 @@ import { AntDesign, SimpleLineIcons } from "react-native-vector-icons";
 
 import emblem from "../assets/emblem.png";
 import nic from "../assets/footer.png";
-import { Dropdown } from 'react-native-element-dropdown';
+// import { Dropdown } from 'react-native-element-dropdown';
 
 const StoresScreen = ({navigation}) => {
   
@@ -27,13 +27,12 @@ const StoresScreen = ({navigation}) => {
       setData(json);
     });
 
-  // const stateOption = data.map((item) => item.statename);
 
-  const renderLabel = () => {
+  const renderLabel = ({title}) => {
     if (value || isFocus) {
       return (
         <Text style={[styles.label, isFocus && { color: 'blue' }]}>
-          STATE
+          {title}
         </Text>
       );
     }
@@ -85,14 +84,14 @@ const StoresScreen = ({navigation}) => {
         >
           <AntDesign name="arrowleft" size={24} color={"white"} onPress={()=>navigation.navigate("HomeScreen")}/>
           <Text style={{ fontWeight: "bold", color: "white", fontSize: 22 }}>
-            ONORC Information
+            FAIR PRICE SHOPS
           </Text>
           <SimpleLineIcons name="options-vertical" size={18} color={"white"} />
         </View>
       </View>
 
-      <View style={styles.content}>
-      {renderLabel()}
+      {/* <View style={styles.content}>
+      {renderLabel("STATE")}
       <Dropdown
         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
         placeholderStyle={styles.placeholderStyle}
@@ -100,12 +99,11 @@ const StoresScreen = ({navigation}) => {
         inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
         data={data}
-        // search
         maxHeight={300}
         // labelField="item"
         labelField="statename"
         valueField="statecode"
-        placeholder={!isFocus ? 'Select state' : '...'}
+        placeholder={!isFocus ? 'Select State' : '...'}
         searchPlaceholder="Search..."
         value={value}
         onFocus={() => setIsFocus(true)}
@@ -123,7 +121,69 @@ const StoresScreen = ({navigation}) => {
           />
         )}
       />
-      </View>
+
+      {renderLabel("DISTRICT")}
+      <Dropdown
+        style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+        placeholderStyle={styles.placeholderStyle}
+        selectedTextStyle={styles.selectedTextStyle}
+        inputSearchStyle={styles.inputSearchStyle}
+        iconStyle={styles.iconStyle}
+        // data={data}
+        maxHeight={300}
+        // labelField="item"
+        labelField="statename"
+        valueField="statecode"
+        placeholder={!isFocus ? 'Select District' : '...'}
+        searchPlaceholder="Search..."
+        value={value}
+        onFocus={() => setIsFocus(true)}
+        onBlur={() => setIsFocus(false)}
+        onChange={item => {
+          setValue(item.statecode);
+          setIsFocus(false);
+        }}
+        renderLeftIcon={() => (
+          <AntDesign
+            style={styles.icon}
+            color={isFocus ? 'blue' : 'black'}
+            name="Safety"
+            size={20}
+          />
+        )}
+      />
+      
+      {renderLabel("TEHSIL")}
+      <Dropdown
+        style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+        placeholderStyle={styles.placeholderStyle}
+        selectedTextStyle={styles.selectedTextStyle}
+        inputSearchStyle={styles.inputSearchStyle}
+        iconStyle={styles.iconStyle}
+        // data={data}
+        maxHeight={300}
+        // labelField="item"
+        labelField="statename"
+        valueField="statecode"
+        placeholder={!isFocus ? 'Select Tehsil' : '...'}
+        searchPlaceholder="Search..."
+        value={value}
+        onFocus={() => setIsFocus(true)}
+        onBlur={() => setIsFocus(false)}
+        onChange={item => {
+          setValue(item.statecode);
+          setIsFocus(false);
+        }}
+        renderLeftIcon={() => (
+          <AntDesign
+            style={styles.icon}
+            color={isFocus ? 'blue' : 'black'}
+            name="Safety"
+            size={20}
+          />
+        )}
+      />
+      </View> */}
 
 
       <View style={styles.footer}>
@@ -157,8 +217,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#0e4d92",
   },
   content: {
+    justifyContent:"space-evenly",
     backgroundColor: "white",
-    height:200,
+    height:300,
     margin: 30,
     padding: 30,
     borderRadius: 10,

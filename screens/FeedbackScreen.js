@@ -1,27 +1,54 @@
 import {
+  Alert,
   Image,
-  SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
+  KeyboardAvoidingView,
 } from "react-native";
 import React, { useState } from "react";
 import { AntDesign, SimpleLineIcons } from "react-native-vector-icons";
 
-import Footer from "../components/footer/Footer";
+
 import emblem from "../assets/emblem.png";
 import nic from "../assets/footer.png";
 import { useNavigation } from "@react-navigation/native";
 
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
+
 const FeedbackScreen = () => {
 
   const [cardNumber, setCardNumber] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [suggestion, setSuggestion] = useState("");
   const navigation = useNavigation();
+
+  const handleAdd = async(e) =>{
+
+    // if(mobileNumber.length()!==10 || cardNumber.length()!==12 || suggestion.length()===0){
+    //   Alert.alert("Error !!","Please provide us with the correct information.");
+    // }
+    // else{
+      e.preventDefault;
+      Alert.alert("Successfull!!","Thank you for you feeback.");
+      // console.log("something must be saved in the database");
+
+      await setDoc(doc(db, "Feedbacks", "USER Id: " + cardNumber), {
+        "Ration Card Number" : cardNumber,
+        "Mobile Number" : mobileNumber,
+        Suggestion : suggestion,
+      });
+    // }
+    setMobileNumber("");
+    setCardNumber("");
+    setSuggestion("");
+  }
   
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container}>
       <View style={styles.header}>
         <View style={{ borderWidth: 2, borderColor: "#0e4d92" }}></View>
         <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
@@ -63,7 +90,7 @@ const FeedbackScreen = () => {
             paddingHorizontal: 20,
           }}
         >
-          <AntDesign name="arrowleft" size={24} color={"white"}  onPress={()=>navigation.navigate("HomeScreen")}/>
+          <AntDesign name="arrowleft" size={24} color={"white"}  onPress={()=>navigation.goBack()}/>
           <Text style={{ fontWeight: "bold", color: "white", fontSize: 22 }}>
             Feedback
           </Text>
@@ -92,8 +119,8 @@ const FeedbackScreen = () => {
           </View>
           <View style={{padding:10, justifyContent:"center", alignItems:"center"}}>
           <TextInput
-            placeholder="Enter Ration card no"
-            onChangeText={(text) => setCardNumber(text)}
+            placeholder="Enter contact info"
+            onChangeText={(text) => setMobileNumber(text)}
             style={{borderWidth:1, borderColor:"white", borderBottomColor:"black"}}
           />
           </View>
@@ -105,18 +132,18 @@ const FeedbackScreen = () => {
           </View>
           <View style={{padding:10, justifyContent:"center", alignItems:"center"}}>
           <TextInput
-            placeholder="Enter Ration card no"
-            onChangeText={(text) => setCardNumber(text)}
+            numberOfLines={3}
+            placeholder="Enter your suggestion/feedback here.."
+            onChangeText={(text) => setSuggestion(text)}
             style={{borderWidth:1, borderColor:"white", borderBottomColor:"black"}}
           />
           </View>
         </View>
-        
 
         <View>
           <TouchableOpacity
           style={{backgroundColor:"#0e4d92", alignItems:"center", padding:10, marginHorizontal:80, marginTop:20}}
-          onPress={()=>navigation.navigate("HomeScreen")}>
+          onPress={handleAdd}>
             <Text style={{color:"white"}}>SUBMIT</Text>
             </TouchableOpacity>
         </View>
@@ -131,7 +158,7 @@ const FeedbackScreen = () => {
           <Image source={nic} style={styles.image} />
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

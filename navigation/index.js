@@ -1,12 +1,10 @@
 import React from "react";
-import { View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 import OnboardingScreen from "../screens/OnboardingScreen";
 import HomeScreen from "../screens/HomeScreen";
 import RationScreen from "../screens/RationScreen";
-import StatesScreen from "../screens/StatesScreen.js";
 import StoresScreen from "../screens/StoresScreen";
 import CriteriaScreen from "../screens/CriteriaScreen";
 import SeedingScreen from "../screens/SeedingScreen";
@@ -19,6 +17,7 @@ import CriteriaResultScreen from "../screens/CriteriaResultScreen";
 
 const Stack = createNativeStackNavigator();
 
+
 export default Navigation = () =>{
     return(
         <NavigationContainer>
@@ -29,7 +28,6 @@ export default Navigation = () =>{
                 <Stack.Screen name="Ration" component={RationScreen}/>
                 <Stack.Screen name="Store" component={StoresScreen}/>
                 <Stack.Screen name="Criteria" component={CriteriaScreen}/>
-                <Stack.Screen name="States" component={StatesScreen}/>
                 <Stack.Screen name="Seeding" component={SeedingScreen}/>
                 <Stack.Screen name="Feedback" component={FeedbackScreen}/>
 
