@@ -33,10 +33,10 @@ const SeedingResultScreen = ({ navigation, route }) => {
 
   const data = {
     id: route.params.id,
-    idType: "R",
-    userName: "IMPDS",
-    token: "91f01a0a96c526d28e4d0c1189e80459",
-    sessionId: "282019011812185006",
+    idType: "",
+    userName: "",
+    token: "",
+    sessionId: "",
   };
 
   // for date and time
@@ -51,7 +51,7 @@ const SeedingResultScreen = ({ navigation, route }) => {
   }, []);
 
   useEffect(() => {
-    fetch("http://impds.nic.in/impdsmobileapi/api/getrationcard/", {
+    fetch("", {
       method: "POST",
       body: JSON.stringify(data),
     })
