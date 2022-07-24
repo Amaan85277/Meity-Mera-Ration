@@ -1,11 +1,11 @@
 # Prototype of Mera Ration App
 This is a project that will help people – ration cardholders, especially migrant workers to check food grain entitlement, status of Aadhar seeding and recent transactions etc.
 The key features that will be available:
-•	With the help of this application, user can check their ration details, the current scheme they are enrolled in and etc. .
-•	The user will be able to check if they are eligible for the ration policies. 
-•	If user have seeded their Aadhaar with a ration card then its status can be checked from this app too. 
-•	Information about the states in which ONORC is active can also be checked and their transactions. 
-•	If have any suggestions then it can be submitted from this app. 
+•.	With the help of this application, user can check their ration details, the current scheme they are enrolled in and etc. .
+•.	The user will be able to check if they are eligible for the ration policies. 
+•.	If user have seeded their Aadhaar with a ration card then its status can be checked from this app too. 
+•.	Information about the states in which ONORC is active can also be checked and their transactions. 
+•.	If have any suggestions then it can be submitted from this app. 
 
 # INFRASTRUCTURE
 1.	The application is designed, to make it easier for the user to know their details.
