@@ -7,7 +7,6 @@ The key features that will be available:
 •	Information about the states in which ONORC is active can also be checked and their transactions. 
 •	If have any suggestions then it can be submitted from this app. 
 
-#PUBLISHED on expo:
 link : https://expo.dev/@amaan.ahmad/mera-ration
 
 # INFRASTRUCTURE
