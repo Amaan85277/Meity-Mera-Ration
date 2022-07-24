@@ -118,6 +118,16 @@ The key features that will be available:
 
  <img width="459" alt="image" src="https://user-images.githubusercontent.com/91450039/178945381-92430c1d-4594-411f-a8ba-43391133ccce.png">
 
+# Suggestions and Feedbacks
+1.	Module:
+1.1.	 Will allow the user to submit their suggestions and feedback in-relation to their phone number and ration number.
+2.	Connecting it with the Firebase
+2.1.	Google Firebase is a Google-backed application development software that enables developers to develop iOS, Android and Web apps. 
+2.2.	Firebase provides tools for tracking analytics, reporting and fixing app crashes, creating marketing and product experiment.
+2.3.	Will be able to store the data in the real-time ¬database.
+
+<img width="345" alt="image" src="https://user-images.githubusercontent.com/91450039/178945732-1bc3d352-219d-4130-8858-f57ba9bdd4c2.png">
+
 
 # # WORKING ON::
 
@@ -135,14 +145,6 @@ The key features that will be available:
  <img width="321" alt="image" src="https://user-images.githubusercontent.com/91450039/178945789-bd903d82-98c0-4162-b9e7-f9ccaf69ee48.png">
 
  
-# Suggestions and Feedbacks
-1.	Module:
-1.1.	 Will allow the user to submit their suggestions and feedback in-relation to their phone number and ration number.
-2.	Connecting it with the Firebase
-2.1.	Google Firebase is a Google-backed application development software that enables developers to develop iOS, Android and Web apps. 
-2.2.	Firebase provides tools for tracking analytics, reporting and fixing app crashes, creating marketing and product experiment.
-2.3.	Will be able to store the data in the real-time ¬database.
 
-<img width="345" alt="image" src="https://user-images.githubusercontent.com/91450039/178945732-1bc3d352-219d-4130-8858-f57ba9bdd4c2.png">
 
 
